@@ -1,0 +1,18 @@
+Require: install RabbitMQ https://www.rabbitmq.com
+
+Server:
+ - Webserver (Flask process)
+	+ Login page (page)
+	+ Main page (page)
+	+ Return user list (ajax)
+	+ Get chat list (ajax, request client and wait for reply)
+	+ Add chat (ajax, request client and wait for reply)
+ - Server (process)
+	+ Receive next token-holder request (receive from server queue, response)
+	+ Send token (send to specific client queue, no response)
+ 
+Client:
+ - Client (process)
+	+ Receive request to get user list
+	+ Receive request to get chat list
+	+ Receive request to add chat
